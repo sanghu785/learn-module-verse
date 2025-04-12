@@ -46,10 +46,10 @@ const WhatsAppContact = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <MessageSquare className="h-5 w-5 text-brand-800" />
-          Contact via WhatsApp
+          Contact our Holistic Healing Guide
         </CardTitle>
         <CardDescription>
-          Have questions about the course? Send us a message directly on WhatsApp.
+          Have questions about your healing journey? Send us a message directly on WhatsApp.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -64,7 +64,7 @@ const WhatsAppContact = () => {
           </div>
           <div className="space-y-2">
             <Textarea
-              placeholder="Your message"
+              placeholder="Your question about holistic healing..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required

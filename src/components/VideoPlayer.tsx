@@ -16,7 +16,7 @@ const VideoPlayer = () => {
   const handleVideoCompleted = () => {
     if (currentVideo) {
       markVideoCompleted(currentVideo.id);
-      toast.success("Video completed!");
+      toast.success("Practice session completed!");
     }
   };
 
@@ -24,8 +24,8 @@ const VideoPlayer = () => {
     return (
       <div className="flex flex-col items-center justify-center h-64 bg-muted rounded-lg">
         <PlayCircle className="h-16 w-16 text-muted-foreground" />
-        <p className="mt-4 text-lg text-muted-foreground">No video selected</p>
-        <p className="text-sm text-muted-foreground">Select a video from the list to start learning</p>
+        <p className="mt-4 text-lg text-muted-foreground">No healing session selected</p>
+        <p className="text-sm text-muted-foreground">Select a session from the list to begin your healing journey</p>
       </div>
     );
   }
