@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				heading: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +66,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				brand: {
+					'50': '#f0f9ff',
+					'100': '#e0f2fe',
+					'200': '#bae6fd',
+					'300': '#7dd3fc',
+					'400': '#38bdf8',
+					'500': '#0ea5e9',
+					'600': '#1a365d', // Deep blue
+					'700': '#155e75',
+					'800': '#2c7a7b', // Teal
+					'900': '#0c4a6e',
+					'950': '#082f49',
+				},
+				accent: {
+					'500': '#ed8936', // Amber
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
