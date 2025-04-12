@@ -1,11 +1,18 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { MessageSquare } from "lucide-react";
+
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  message: string;
+  timestamp: string;
+}
 
 const WhatsAppContact = () => {
   const [name, setName] = useState("");
@@ -23,6 +30,18 @@ const WhatsAppContact = () => {
       // Construct WhatsApp message URL
       const encodedMessage = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      
+      // Save contact submission to localStorage
+      const submission: ContactSubmission = {
+        id: Date.now().toString(),
+        name,
+        message,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Get existing submissions
+      const existingSubmissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+      localStorage.setItem('contactSubmissions', JSON.stringify([...existingSubmissions, submission]));
       
       // Open WhatsApp in a new window
       window.open(whatsappUrl, "_blank");
