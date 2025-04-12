@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useCourse } from "@/contexts/CourseContext";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, CircleDashed, PlayCircle } from "lucide-react";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const VideoPlayer = () => {
   const { 

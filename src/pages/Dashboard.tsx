@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import VideoPlayer from "@/components/VideoPlayer";
 import ModuleSidebar from "@/components/ModuleSidebar";
 import WhatsAppContact from "@/components/WhatsAppContact";
-import { BarChart, Bookmark, GraduationCap, LogOut, Menu, MessageSquare, User, X } from "lucide-react";
+import { BarChart, Bookmark, ChevronRight, GraduationCap, LogOut, Menu, MessageSquare, User, X } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
