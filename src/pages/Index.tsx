@@ -1,11 +1,17 @@
-
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, BookOpen, Video, Award, CheckCircle, ArrowRight } from "lucide-react";
+import { GraduationCap, BookOpen, Video, Award, CheckCircle, ArrowRight, MessageSquare } from "lucide-react";
 
 const Index = () => {
   const navigate = useNavigate();
+
+  const openWhatsApp = () => {
+    const phoneNumber = "1234567890";
+    const message = "Hello, I would like to learn more about your courses!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -17,6 +23,9 @@ const Index = () => {
             <h1 className="text-xl font-heading font-bold">LearnVerse</h1>
           </div>
           <div className="flex items-center gap-4">
+            <Button onClick={openWhatsApp} variant="outline" className="gap-2 text-green-600 border-green-600 hover:bg-green-50">
+              <MessageSquare className="h-4 w-4" /> Contact on WhatsApp
+            </Button>
             <Button variant="ghost" onClick={() => navigate("/login")}>
               Log in
             </Button>
@@ -25,7 +34,7 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with WhatsApp CTA */}
       <section className="bg-gradient-to-b from-brand-600 to-brand-800 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -51,6 +60,13 @@ const Index = () => {
                   onClick={() => navigate("/login")}
                 >
                   Login to Continue
+                </Button>
+                <Button 
+                  size="lg" 
+                  className="bg-green-600 hover:bg-green-700 gap-2"
+                  onClick={openWhatsApp}
+                >
+                  <MessageSquare className="h-5 w-5" /> Chat on WhatsApp
                 </Button>
               </div>
             </div>
@@ -201,20 +217,29 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with WhatsApp */}
       <section className="bg-brand-800 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold mb-4">Ready to Start Your Learning Journey?</h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Join thousands of students who have transformed their careers through our comprehensive web development course.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-brand-800 hover:bg-gray-100"
-            onClick={() => navigate("/signup")}
-          >
-            Sign Up Now
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-white text-brand-800 hover:bg-gray-100"
+              onClick={() => navigate("/signup")}
+            >
+              Sign Up Now
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-green-600 hover:bg-green-700 gap-2"
+              onClick={openWhatsApp}
+            >
+              <MessageSquare className="h-5 w-5" /> Contact us on WhatsApp
+            </Button>
+          </div>
         </div>
       </section>
 

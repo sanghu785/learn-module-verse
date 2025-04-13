@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { CourseProvider } from "@/contexts/CourseContext";
+import FloatingWhatsAppButton from "@/components/FloatingWhatsAppButton";
 
 import Index from "./pages/Index";
 import Login from "./pages/Login";
@@ -15,6 +16,9 @@ import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
+
+// Replace with your actual WhatsApp number
+const WHATSAPP_NUMBER = "1234567890";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -33,6 +37,7 @@ const App = () => (
               <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <FloatingWhatsAppButton phoneNumber={WHATSAPP_NUMBER} />
           </HashRouter>
         </CourseProvider>
       </AuthProvider>
